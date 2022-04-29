@@ -178,7 +178,7 @@ class _OrderEditWidgetState extends StateMVC<OrderEditWidget> {
 //                    title: Text("Assign Delivery Boy"),
                     title: Text(S.of(context).orderStatus),
                     initiallyExpanded: true,
-                    children: List.generate(_con.orderStatuses.length, (index) {
+                    children: List.generate(_con.orderStatuses.length-1, (index) {
                       var _status = _con.orderStatuses.elementAt(index);
                       return RadioListTile(
                         dense: true,

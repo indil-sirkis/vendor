@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
@@ -44,6 +46,7 @@ class OrderController extends ControllerMVC {
       setState(() {
         orderStatuses.add(_orderStatus);
       });
+      print("ORDER_STATUS:::${_orderStatus.status}");
     }, onError: (a) {
       print(a);
       ScaffoldMessenger.of(scaffoldKey?.currentContext).showSnackBar(SnackBar(
