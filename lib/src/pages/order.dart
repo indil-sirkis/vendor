@@ -141,22 +141,22 @@ class _OrderWidgetState extends StateMVC<OrderWidget> with SingleTickerProviderS
                         alignment: WrapAlignment.end,
                         children: <Widget>[
                           if (_con.order.canEditOrder())
-                            OutlineButton(
+                            OutlinedButton(
                               onPressed: () {
                                 Navigator.of(context).pushNamed('/OrderEdit', arguments: RouteArgument(id: _con.order.id));
                               },
-                              padding: EdgeInsets.symmetric(vertical: 10),
+                             /* padding: EdgeInsets.symmetric(vertical: 10),
                               textColor: Theme.of(context).accentColor,
                               disabledTextColor: Theme.of(context).focusColor.withOpacity(0.5),
                               highlightedBorderColor: Theme.of(context).accentColor,
                               shape: StadiumBorder(),
-                              borderSide: BorderSide(color: Theme.of(context).accentColor),
+                              borderSide: BorderSide(color: Theme.of(context).accentColor),*/
                               child: Text(
                                 S.of(context).edit,
                               ),
                             ),
                           SizedBox(width: 10),
-                          OutlineButton(
+                          OutlinedButton(
                             onPressed: !_con.order.canCancelOrder()
                                 ? null
                                 : () {
@@ -204,12 +204,12 @@ class _OrderWidgetState extends StateMVC<OrderWidget> with SingleTickerProviderS
                                       },
                                     );
                                   },
-                            padding: EdgeInsets.symmetric(vertical: 10),
+                          /*  padding: EdgeInsets.symmetric(vertical: 10),
                             textColor: Theme.of(context).accentColor,
                             disabledTextColor: Theme.of(context).focusColor.withOpacity(0.5),
                             highlightedBorderColor: Theme.of(context).accentColor,
                             shape: StadiumBorder(),
-                            borderSide: BorderSide(color: Theme.of(context).accentColor),
+                            borderSide: BorderSide(color: Theme.of(context).accentColor),*/
                             child: Text(
                               S.of(context).cancel,
                             ),

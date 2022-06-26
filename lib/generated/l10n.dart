@@ -1366,7 +1366,7 @@ class S {
   /// `You don't have any order assigned to you!`
   String get you_dont_have_any_order_assigned_to_you {
     return Intl.message(
-      'You don\'t have any order assigned to you!',
+      'No orders assigned',
       name: 'you_dont_have_any_order_assigned_to_you',
       desc: '',
       args: [],

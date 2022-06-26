@@ -26,6 +26,13 @@ class SplashScreenController extends ControllerMVC with ChangeNotifier {
   @override
   void initState() {
     super.initState();
+
+    firebaseMessaging.getToken().then((token){
+      print("token $token");
+    });
+
+
+
     firebaseMessaging.requestPermission( alert: true,
       announcement: false,
       badge: true,

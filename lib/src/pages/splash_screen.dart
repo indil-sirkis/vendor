@@ -4,6 +4,7 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import '../controllers/splash_screen_controller.dart';
 import '../repository/user_repository.dart';
 
+
 class SplashScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -29,6 +30,7 @@ class SplashScreenState extends StateMVC<SplashScreen> {
       double progress = 0;
       _con.progress.value.values.forEach((_progress) {
         progress += _progress;
+        print("progress $progress");
       });
       if (progress == 100) {
         try {

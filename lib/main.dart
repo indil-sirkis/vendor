@@ -13,6 +13,10 @@ import 'src/models/setting.dart';
 import 'src/repository/settings_repository.dart' as settingRepo;
 import 'src/repository/user_repository.dart' as userRepo;
 
+
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 class MyHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext context) {
@@ -21,12 +25,25 @@ class MyHttpOverrides extends HttpOverrides {
 }
 
 Future<void> main() async {
+
+
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  if (Platform.isIOS) {
+    await Firebase.initializeApp();
+
+      //options: DefaultFirebaseOptions.currentPlatform,
+
+  } else {
+    await Firebase.initializeApp();
+  }
+
+
+
   await GlobalConfiguration().loadFromAsset("configurations");
   print(CustomTrace(StackTrace.current, message: "base_url: ${GlobalConfiguration().getValue('base_url')}"));
   print(CustomTrace(StackTrace.current, message: "api_base_url: ${GlobalConfiguration().getValue('api_base_url')}"));
   HttpOverrides.global = new MyHttpOverrides();
+  print("run data4");
   runApp(MyApp());
 }
 
@@ -45,6 +62,7 @@ class _MyAppState extends State<MyApp> {
     settingRepo.initSettings();
     settingRepo.getCurrentLocation();
     userRepo.getCurrentUser();
+
     super.initState();
   }
 

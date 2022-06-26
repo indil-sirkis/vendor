@@ -66,8 +66,12 @@ class ChatController extends ControllerMVC {
     _conversation.readByUsers = [currentUser.value.id];
     _chatRepository.addMessage(_conversation, _chat).then((value) {
       print("NOTIF::${_conversation.users.length}");
+
       _conversation.users.forEach((_user) {
+
         if (_user.id != currentUser.value.id) {
+          print("_user.id $_user.id");
+          print("_userr.value.id.id ${currentUser.value.id}");
           sendNotification(text, S.of(state.context).newMessageFrom + " " + currentUser.value.name, _user);
         }
       });

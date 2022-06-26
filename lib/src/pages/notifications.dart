@@ -6,12 +6,11 @@ import '../controllers/notification_controller.dart';
 import '../elements/DrawerWidget.dart';
 import '../elements/EmptyNotificationsWidget.dart';
 import '../elements/NotificationItemWidget.dart';
+import 'package:flutter_app_badger/flutter_app_badger.dart';
 
 class NotificationsWidget extends StatefulWidget {
   final GlobalKey<ScaffoldState> parentScaffoldKey;
-
   NotificationsWidget({Key key, this.parentScaffoldKey}) : super(key: key);
-
   @override
   _NotificationsWidgetState createState() => _NotificationsWidgetState();
 }
@@ -22,6 +21,13 @@ class _NotificationsWidgetState extends StateMVC<NotificationsWidget> {
   _NotificationsWidgetState() : super(NotificationController()) {
     _con = controller;
   }
+
+  @override
+  void initState() {
+    FlutterAppBadger.updateBadgeCount(0);
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {

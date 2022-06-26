@@ -71,6 +71,7 @@ Future<Notification> removeNotification(Notification cart) async {
   return Notification.fromJSON(json.decode(response.body)['data']);
 }
 
+//for chat use
 Future<void> sendNotification(String body, String title, User user) async {
   final data = {
     "notification": {"body": "$body", "title": "$title"},
